@@ -1,4 +1,3 @@
-
 # C Projects
 
 This repository contains a collection of C projects demonstrating various programming concepts and techniques. Each project is self-contained and includes a brief description of its functionality.
@@ -31,11 +30,11 @@ A simple bank management system that allows users to create accounts, deposit an
 Each project can be compiled and run individually. For example, to compile and run the Tic Tac Toe game:
 
 ```sh
-gcc tic_tac_toe.c -o tic_tac_toe
-./tic_tac_toe
+make -C tic_tac_toe
+./tic_tac_toe/tic_tac_toe
 ```
 
-Follow similar steps for other projects, replacing `tic_tac_toe.c` with the respective source file name.
+Follow similar steps for other projects, replacing `tic_tac_toe` with the respective project directory.
 
 ## Dependencies
 

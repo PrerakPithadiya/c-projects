@@ -1,0 +1,84 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up GCC
+      uses: actions/setup-gcc@v1
+      with:
+        version: '9'
+    - name: Build Sudoku Solver
+      run: |
+        cd sudoku_solver
+        make
+    - name: Run Sudoku Solver Tests
+      run: |
+        cd tests
+        make test_sudoku_solver
+        ./test_sudoku_solver
+    - name: Build Progress Bar
+      run: |
+        cd progress_bar
+        make
+    - name: Run Progress Bar Tests
+      run: |
+        cd tests
+        make test_progress_bar
+        ./test_progress_bar
+    - name: Build Number Guessing Game
+      run: |
+        cd number_guessing_game
+        make
+    - name: Run Number Guessing Game Tests
+      run: |
+        cd tests
+        make test_number_guessing_game
+        ./test_number_guessing_game
+    - name: Build Kaun Banega Crorepati
+      run: |
+        cd kaun_banega_crorepati
+        make
+    - name: Run Kaun Banega Crorepati Tests
+      run: |
+        cd tests
+        make test_kaun_banega_crorepati
+        ./test_kaun_banega_crorepati
+    - name: Build Digital Clock
+      run: |
+        cd digital_clock
+        make
+    - name: Run Digital Clock Tests
+      run: |
+        cd tests
+        make test_digital_clock
+        ./test_digital_clock
+    - name: Build Bank Management System
+      run: |
+        cd bank_management_system
+        make
+    - name: Run Bank Management System Tests
+      run: |
+        cd tests
+        make test_bank_management_system
+        ./test_bank_management_system
+    - name: Clean up
+      run: |
+        cd sudoku_solver
+        make clean
+        cd ../progress_bar
+        make clean
+        cd ../number_guessing_game
+        make clean
+        cd ../kaun_banega_crorepati
+        make clean
+        cd ../digital_clock
+        make clean
+        cd ../bank_management_system
+        make clean
+        cd ../tests
+        make clean
